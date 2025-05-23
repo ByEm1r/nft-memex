@@ -1,0 +1,7 @@
+{
+  "burn": {
+    "pending": 400000,
+    "total": 10000
+  },
+  "hideAdminLogin": true
+}

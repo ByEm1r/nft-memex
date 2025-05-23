@@ -1,0 +1,235 @@
+{
+  "nfts": [
+    {
+      "id": "1",
+      "title": "MemeX NFT #1",
+      "description": "Limited edition MemeX NFT collection piece #1. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 200000,
+      "priceXEP": 10000,
+      "mintCount": 10,
+      "soldCount": 6,
+      "creator": "MemeX"
+    },
+    {
+      "id": "2",
+      "title": "MemeX NFT #2",
+      "description": "Limited edition MemeX NFT collection piece #2. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 1,
+      "creator": "MemeX"
+    },
+    {
+      "id": "3",
+      "title": "MemeX NFT #3",
+      "description": "Limited edition MemeX NFT collection piece #3. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 1,
+      "creator": "MemeX"
+    },
+    {
+      "id": "4",
+      "title": "MemeX NFT #4",
+      "description": "Limited edition MemeX NFT collection piece #4. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "5",
+      "title": "MemeX NFT #5",
+      "description": "Limited edition MemeX NFT collection piece #5. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 2,
+      "creator": "MemeX"
+    },
+    {
+      "id": "6",
+      "title": "MemeX NFT #6",
+      "description": "Limited edition MemeX NFT collection piece #6. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "7",
+      "title": "MemeX NFT #7",
+      "description": "Limited edition MemeX NFT collection piece #7. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "8",
+      "title": "MemeX NFT #8",
+      "description": "Limited edition MemeX NFT collection piece #8. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "9",
+      "title": "MemeX NFT #9",
+      "description": "Limited edition MemeX NFT collection piece #9. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "10",
+      "title": "MemeX NFT #10",
+      "description": "Limited edition MemeX NFT collection piece #10. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "11",
+      "title": "MemeX NFT #11",
+      "description": "Limited edition MemeX NFT collection piece #11. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 1,
+      "creator": "MemeX"
+    },
+    {
+      "id": "12",
+      "title": "MemeX NFT #12",
+      "description": "Limited edition MemeX NFT collection piece #12. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "13",
+      "title": "MemeX NFT #13",
+      "description": "Limited edition MemeX NFT collection piece #13. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "14",
+      "title": "MemeX NFT #14",
+      "description": "Limited edition MemeX NFT collection piece #14. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "15",
+      "title": "MemeX NFT #15",
+      "description": "Limited edition MemeX NFT collection piece #15. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "16",
+      "title": "MemeX NFT #16",
+      "description": "Limited edition MemeX NFT collection piece #16. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "17",
+      "title": "MemeX NFT #17",
+      "description": "Limited edition MemeX NFT collection piece #17. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "18",
+      "title": "MemeX NFT #18",
+      "description": "Limited edition MemeX NFT collection piece #18. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    },
+    {
+      "id": "19",
+      "title": "MemeX NFT #19",
+      "description": "Limited edition MemeX NFT collection piece #19. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 1,
+      "creator": "MemeX"
+    },
+    {
+      "id": "20",
+      "title": "MemeX NFT #20",
+      "description": "Limited edition MemeX NFT collection piece #20. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 1,
+      "creator": "MemeX"
+    },
+    {
+      "id": "21",
+      "title": "MemeX NFT #21",
+      "description": "Limited edition MemeX NFT collection piece #21. Each NFT purchase contributes to MemeX token burning, enhancing the ecosystem's value.",
+      "image": "https://memex.planc.space/nft/memex_nft.jpg",
+      "price": 100000,
+      "priceXEP": 5000,
+      "mintCount": 10,
+      "soldCount": 0,
+      "creator": "MemeX"
+    }
+  ]
+}
