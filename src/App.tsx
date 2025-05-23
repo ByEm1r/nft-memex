@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Login } from './pages/Login';
@@ -15,13 +15,14 @@ function App() {
   const pingInterval = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    loadInitialData();
+    // Initial data yükle
+    loadInitialData().catch((err) => {
+      console.error('loadInitialData failed:', err);
+    });
 
+    // WebSocket bağlantısı başlat
     const token = 'KPKtZvI1vC4a';
-    const isProd = window.location.protocol === 'https:';
-    const wsUrl = isProd
-        ? `wss://nft.memextoken.org/?token=${token}`
-        : `ws://localhost:3001/?token=${token}`;
+    const wsUrl = `${window.location.protocol === 'https:' ? 'wss' : 'ws'}://${window.location.host}/?token=${token}`;
 
     ws.current = new WebSocket(wsUrl);
 
