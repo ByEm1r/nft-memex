@@ -8,32 +8,15 @@ export default defineConfig({
   },
   server: {
     proxy: {
-      '/data': 'http://localhost:3000',
-      '/socket.io': {
-        target: 'wss://nft.memextoken.org:24678',
-        ws: true,
-        secure: true,
-        changeOrigin: true
-      },
-      'wss://nft.memextoken.org:24678': {
-        target: 'wss://nft.memextoken.org:24678',
-        secure: true,
-        ws: true,
-        changeOrigin: true
-      },
-      'ws://nft.memextoken.org:24678': {
-        target: 'wss://nft.memextoken.org:24678',
-        secure: true,
-        ws: true,
-        changeOrigin: true
-      }
+      '/data': 'http://localhost:3000', // Varsa özel API'n için
     },
     hmr: {
-      overlay: false,
-      protocol: 'wss',
+      overlay: false
     },
     allowedHosts: ["nft.memextoken.org"],
-    https: true,
+
+    // Lokal geliştiriyorsan HTTPS kapalı olmalı
+    https: false
   },
   build: {
     outDir: 'dist',

@@ -4,6 +4,7 @@ export interface NFT {
   description: string;
   image: string;
   price: number;
+  priceXEP: number;
   mintCount: number;
   soldCount: number;
 }

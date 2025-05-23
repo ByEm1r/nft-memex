@@ -6,58 +6,70 @@ import { useStore } from './store';
 
 function Root() {
   const { loadInitialData } = useStore();
-  const ws = useRef(null);
+  const ws = useRef<WebSocket | null>(null);
+  const pingInterval = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    loadInitialData();
-  }, [loadInitialData]);
-
-  // Function to establish WebSocket connection
+  // WebSocket setup function
   const setupWebSocket = () => {
     const token = 'KPKtZvI1vC4a';
-    const wsUrl = `wss://nft.memextoken.org:24678/?token=${token}`;
+    const isProd = window.location.protocol === 'https:';
+    const wsUrl = isProd
+        ? `wss://nft.memextoken.org/?token=${token}`
+        : `ws://localhost:3001/?token=${token}`;
 
     ws.current = new WebSocket(wsUrl);
 
     ws.current.onopen = () => {
-      console.log('WebSocket connected in main.tsx');
+      console.log('✅ WebSocket connected');
+
+      // Başarılı bağlantı sonrası ping başlat
+      pingInterval.current = setInterval(() => {
+        if (ws.current?.readyState === WebSocket.OPEN) {
+          ws.current.send(JSON.stringify({ type: 'ping' }));
+        }
+      }, 25000); // 25 saniyede bir ping gönder
     };
 
     ws.current.onmessage = (event) => {
-      console.log('Received in main.tsx:', event.data);
+      console.log('📩 Message:', event.data);
     };
 
     ws.current.onclose = (event) => {
-      console.log('WebSocket disconnected in main.tsx', event.code, event.reason);
-      // Suppress error 1006 display
-      if (event.code !== 1006) {
-        console.log('WebSocket disconnected in main.tsx', event.code, event.reason);
+      console.warn('❌ WebSocket disconnected', event.code, event.reason);
+      clearInterval(pingInterval.current!);
+
+      // Sadece beklenmeyen kesilmelerde yeniden bağlan
+      if (event.code !== 1000) {
+        setTimeout(setupWebSocket, 3000);
       }
-      // Attempt to reconnect after a delay
-      setTimeout(setupWebSocket, 3000);
     };
 
-    ws.current.onerror = (error) => {
-      console.error('WebSocket error in main.tsx:', error);
+    ws.current.onerror = (event) => {
+      console.warn('⚠️ WebSocket error:', event);
     };
   };
 
   useEffect(() => {
     loadInitialData();
-    setupWebSocket(); // Call WebSocket setup
+    setupWebSocket();
 
     return () => {
-      if (ws.current) {
-        ws.current.close();
-      }
+      if (ws.current) ws.current.close();
+      if (pingInterval.current) clearInterval(pingInterval.current);
     };
   }, []);
 
   return <App />;
 }
 
-createRoot(document.getElementById('root')!).render(
-    <StrictMode>
-      <Root />
-    </StrictMode>
-);
+const rootElement = document.getElementById('root');
+if (rootElement && !rootElement._reactRootContainer) {
+  const root = createRoot(rootElement);
+  root.render(
+      <StrictMode>
+        <Root />
+      </StrictMode>
+  );
+}
+
+

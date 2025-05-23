@@ -1,4 +1,4 @@
-// server.js - Supabase uyumlu, admin ve JSON'dan tamamen arındırılmış
+// server.js - Render uyumlu, HTTPS sertifikasız (Render zaten HTTPS sunar)
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
@@ -8,8 +8,6 @@ import { dirname, join } from 'path';
 import { createServer as createViteServer } from 'vite';
 import { WebSocketServer } from 'ws';
 import { createServer as createHttpServer } from 'http';
-import https from 'https';
-import { readFileSync } from 'fs';
 import { createClient } from '@supabase/supabase-js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -19,10 +17,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Supabase
+// Supabase bağlantısı
 const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
 
-// Admin login route (basic)
+// Basit admin login
 app.post('/api/admin/login', (req, res) => {
   const { username, password } = req.body;
   if (username === 'PlanC' && password === 'Ceyhun8387@') {
@@ -32,7 +30,6 @@ app.post('/api/admin/login', (req, res) => {
   }
 });
 
-// Middleware for admin token
 const isAuthenticated = (req, res, next) => {
   const token = req.headers.authorization;
   if (token === 'Bearer memex-admin-token') {
@@ -42,7 +39,7 @@ const isAuthenticated = (req, res, next) => {
   }
 };
 
-// Supabase API Routes
+// Supabase API endpoint'leri
 app.get('/api/nfts', async (req, res) => {
   const { data, error } = await supabase.from('nfts').select('*');
   if (error) return res.status(500).json({ error: error.message });
@@ -77,52 +74,33 @@ app.put('/api/settings', isAuthenticated, async (req, res) => {
 // HTTP server
 const httpServer = createHttpServer(app);
 
-// HTTPS server opsiyonel
-let httpsServer;
-try {
-  const privateKey = readFileSync('/home/project/privkey.pem', 'utf8');
-  const certificate = readFileSync('/home/project/fullchain.pem', 'utf8');
-
-  const httpsOptions = { key: privateKey, cert: certificate };
-  httpsServer = https.createServer(httpsOptions, app);
-} catch (error) {
-  console.warn('HTTPS config failed. Starting only HTTP.', error);
-}
-
-// WebSocket
-let wss;
-if (httpsServer) {
-  wss = new WebSocketServer({ server: httpsServer });
-
-  wss.on('connection', (ws) => {
-    console.log('WebSocket connected');
-
-    ws.on('message', (msg) => {
-      console.log('Received:', msg.toString());
-      ws.send(`Echo: ${msg}`);
-    });
-
-    ws.on('close', () => console.log('WebSocket disconnected'));
-    ws.on('error', (err) => console.error('WebSocket error:', err));
+// WebSocket (sadece HTTP sunucusu üzerinde çalışır)
+const wss = new WebSocketServer({ server: httpServer });
+wss.on('connection', (ws) => {
+  console.log('WebSocket connected');
+  ws.on('message', (msg) => {
+    console.log('Received:', msg.toString());
+    ws.send(`Echo: ${msg}`);
   });
-}
+  ws.on('close', () => console.log('WebSocket disconnected'));
+  ws.on('error', (err) => console.error('WebSocket error:', err));
+});
 
-// Vite
+// Vite (middleware)
 const vite = await createViteServer({
   server: { middlewareMode: true },
   appType: 'spa'
 });
 app.use(vite.middlewares);
 
+// Yayına alınca statik dosyaları servis et
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('dist'));
   app.get('*', (req, res) => res.sendFile(join(__dirname, 'dist', 'index.html')));
 }
 
-const PORT = process.env.PORT || 3000;
-if (httpsServer) {
-  httpsServer.listen(PORT, () => console.log(`HTTPS: https://localhost:${PORT}`));
-}
-
-const HTTP_PORT = 3001;
-httpServer.listen(HTTP_PORT, () => console.log(`HTTP: http://localhost:${HTTP_PORT}`));
+// Sunucuyu başlat
+const PORT = process.env.PORT || 3001;
+httpServer.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
+});
